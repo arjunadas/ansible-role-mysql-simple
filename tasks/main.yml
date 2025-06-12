@@ -21,11 +21,18 @@
     name: pymysql
     state: present
 
-#- name: Copy .my.cnf file with root password credentials
+#- name: Copy .my.cnf file for root user
 #  ansible.builtin.template:
-#    src: my.cnf.j2
+#    src: my.cnf_root.j2
 #    dest: /root/.my.cnf
 #    owner: root
+#    mode: '0600'
+
+#- name: Copy .my.cnf file for user
+#  ansible.builtin.template:
+#    src: my.cnf.j2
+#    dest: /{{ mysql_user_name }}/.my.cnf
+#    owner: {{ mysql_user_name }}
 #    mode: '0600'
 
 - name: Update MySQL root authentication via socket for localhost (Linux, MySQL ≥ 8.4)
