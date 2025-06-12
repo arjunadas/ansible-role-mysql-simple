@@ -51,7 +51,6 @@
     name: root
     host_all: true
     password: "{{ mysql_root_password }}"
-    #priv: '*.*:ALL'
   when: mysql_root_password_update | bool or mysql_root_password != ''
  
 - name: Reload mysql
