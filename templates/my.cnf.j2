@@ -1,0 +1,6 @@
+- name: Copy .my.cnf file for user
+  ansible.builtin.template:
+    src: my.cnf.j2
+    dest: /{{ mysql_user_name }}/.my.cnf
+    owner: {{ mysql_user_name }}
+    mode: '0600'
